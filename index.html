@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informasi Absen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: #fff;
+            max-width: 400px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .icon {
+            margin: 20px 0;
+        }
+        .icon img {
+            width: 100px;
+            height: 100px;
+        }
+        .status {
+            font-size: 1.2em;
+            color: green;
+            font-weight: bold;
+        }
+        .info {
+            text-align: left;
+            margin-top: 20px;
+            font-size: 1em;
+            color: #333;
+        }
+        .info p {
+            margin: 10px 0;
+        }
+        .label {
+            font-weight: bold;
+        }
+        .wa-button {
+            display: inline-block;
+            background-color: #25d366;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">
+            <img src="https://img.icons8.com/ios-filled/100/4CAF50/checked.png" alt="Centang" id="checkIcon">
+        </div>
+        <div class="status" id="status">Informasi Barang</div>
+        <div class="info">
+            <p><span class="label">Nama:</span> Alzam Gilang Aryatama</p>
+            <p><span class="label">Absen Nomor:</span> 04</p>
+            <p><span class="label">Sekolah Dasar:</span> SDN Bahagia 04</p>
+        </div>
+        <a href="#" id="waLink" class="wa-button" style="display: none;">Kirim WhatsApp</a>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Nomor WhatsApp tujuan (format: 62 untuk kode negara Indonesia)
+            const phoneNumber = "6289527551229"; // Ganti dengan nomor yang dituju
+            const name = "Alzam Gilang Aryatama";
+            const absen = "03";
+            const message = `Halo ${name} Barang Anda Sedang Ada Di Saya`;
+
+            // Buat link WhatsApp
+            const waLink = document.getElementById("waLink");
+            waLink.href = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+            // Tampilkan tombol WhatsApp ketika sudah centang
+            const checkIcon = document.getElementById("checkIcon");
+            checkIcon.addEventListener("load", function() {
+                waLink.style.display = "inline-block";
+            });
+        });
+    </script>
+</body>
+</html>
